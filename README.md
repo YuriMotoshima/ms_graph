@@ -229,7 +229,7 @@ curl --location 'https://graph.microsoft.com/v1.0/invitations' \
 --header 'Authorization: Bearer {{token}}' \
 --data-raw '{
     "invitedUserEmailAddress": "yuri.motoshima@gmail.com",
-    "inviteRedirectUrl": "https://myapplications.microsoft.com/?tenantid=353bbcdb-1fd0-49d4-a613-87e4ef96aaec",
+    "inviteRedirectUrl": "https://myapplications.microsoft.com/?tenantid=",
     "sendInvitationMessage": true,
     "invitedUserMessageInfo": {
         "customizedMessageBody": "Olá, você foi convidado para acessar nosso diretório."
