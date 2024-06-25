@@ -54,11 +54,11 @@ class MSGraph:
             url = self.url_graph + path
             headers = headers or self.headers
             headers['Authorization'] = f'Bearer {self.access_token}'
-            request = Request(method=method.upper(), url=url, headers=headers, data=data or None, params=params or None)
+            request = Request(method=method.upper(), url=url, headers=headers, json=data or None, params=params or None)
             return request
         
         try:
-            request = create_session(method=method, path=path, headers=headers, params=params, data=data)
+            request = create_session(method=method, path=path, headers=headers, params=params, data=data.model_dump())
             response = self.client.send(request)
         finally:
             self.client.close()
@@ -113,13 +113,13 @@ class MSGraph:
 
 
     def add_user_application(self, resource_id:str, data:AddUserApp) -> dict:
-        data = AddUserApp(**data)
+        data = AddUserApp(**data) if isinstance(data, dict) else data
         path = self.path_applications + resource_id + '/appRoleAssignments'
         return loads(self.request(method='post', path=path, data=data).content)
 
 
     def invite_user(self, data:InvitationUser) -> dict:
-        data = InvitationUser(**data)
+        data = InvitationUser(**data) if isinstance(data, dict) else data
         path = self.path_invitations
         return loads(self.request(method='post', path=path, data=data).content)
 
