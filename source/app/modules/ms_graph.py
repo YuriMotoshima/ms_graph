@@ -10,7 +10,7 @@ class MSGraph:
     path_groups = '/groups/'
     path_applications = '/applications/'
     path_services = '/servicePrincipals/'
-    path_invitations = '/invitations/'
+    path_invitations = '/invitations'
     
     def __url_login(self,
         token_app): return f'https://login.microsoftonline.com/{token_app}/oauth2/v2.0/token/'
@@ -36,8 +36,8 @@ class MSGraph:
             'Cookie': 'fpc=AikroW4keohAskOlaTR3wPzC6MHkAQAAAFHA5t0OAAAA'
         }
         url = self.__url_login(token_app=token_app)
-        payload = f'client_id={self.azure_data['client_id_app']}&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&' \
-        f'client_secret={self.azure_data['secret_id_app']}&grant_type=client_credentials'
+        payload = f'client_id={self.azure_data["client_id_app"]}&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&' \
+        f'client_secret={self.azure_data["secret_id_app"]}&grant_type=client_credentials'
         
         try:
             response = self.client.post(url=url, headers=headers, data=payload)
@@ -58,7 +58,7 @@ class MSGraph:
             return request
         
         try:
-            request = create_session(method=method, path=path, headers=headers, params=params, data=data.model_dump())
+            request = create_session(method=method, path=path, headers=headers, params=params, data=data)
             response = self.client.send(request)
         finally:
             self.client.close()
@@ -87,9 +87,9 @@ class MSGraph:
         
         
     def create_new_user(self, data:NewUser) -> dict:
-        data = NewUser(**data)
+        data = NewUser(**data) if isinstance(data, dict) else data
         path = self.path_user
-        return loads(self.request(method='get', path=path, data=data).content)
+        return loads(self.request(method='get', path=path, data=data.model_dump()).content)
         
     
     def delete_user(self, id_user:str) -> object:
@@ -115,13 +115,13 @@ class MSGraph:
     def add_user_application(self, resource_id:str, data:AddUserApp) -> dict:
         data = AddUserApp(**data) if isinstance(data, dict) else data
         path = self.path_applications + resource_id + '/appRoleAssignments'
-        return loads(self.request(method='post', path=path, data=data).content)
+        return loads(self.request(method='post', path=path, data=data.model_dump()).content)
 
 
     def invite_user(self, data:InvitationUser) -> dict:
         data = InvitationUser(**data) if isinstance(data, dict) else data
         path = self.path_invitations
-        return loads(self.request(method='post', path=path, data=data).content)
+        return loads(self.request(method='post', path=path, data=data.model_dump()).content)
 
 
     def get_services(self) -> dict:

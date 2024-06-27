@@ -33,7 +33,7 @@ def ms_graph_instance():
 def valid_user_data_invitation_payload():
     return {
         'invitedUserEmailAddress': 'teste.testando@gail.com',
-        'inviteRedirectUrl': f'https://myapplications.microsoft.com/?tenantid={azure_data['token_app']}',
+        'inviteRedirectUrl': f'https://myapplications.microsoft.com/?tenantid={azure_data["token_app"]}',
         'sendInvitationMessage': True,
         'invitedUserMessageInfo': {
             'customizedMessageBody': 'Olá, você foi convidado para acessar nosso diretório.'
@@ -45,7 +45,7 @@ def valid_user_data_invitation_payload():
 def invalid_user_data_invitation_payload():
     return {
         'invitedUserEmailAddress': 'teste.testando$$$gail.com',
-        'inviteRedirectUrl': f'https://myapplications.microsoft.com/?tenantid={azure_data['token_app']}',
+        'inviteRedirectUrl': f'https://myapplications.microsoft.com/?tenantid={azure_data["token_app"]}',
         'sendInvitationMessage': True,
         'invitedUserMessageInfo': {
             'customizedMessageBody': 'Olá, você foi convidado para acessar nosso diretório.'
@@ -103,7 +103,7 @@ def assert_all_responses_were_requested() -> bool:
 @pytest.fixture(autouse=True)
 def mock_httpx_requests(httpx_mock: HTTPXMock):
     mock_get_applications_response(httpx_mock)
-    mock_token_request_response(httpx_mock, azure_data['token_app'])
+    mock_token_request_response(httpx_mock, azure_data["token_app"])
     mock_get_groups_response(httpx_mock)
     mock_get_list_users_response(httpx_mock)
     mock_invitations_response(httpx_mock)

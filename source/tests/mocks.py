@@ -220,7 +220,7 @@ def mock_get_applications_response(httpx_mock: HTTPXMock):
 
 
 def mock_invitations_response(httpx_mock: HTTPXMock):
-    url = 'https://graph.microsoft.com/v1.0/invitations/'
+    url = 'https://graph.microsoft.com/v1.0/invitations'
     httpx_mock.add_response(
         method='POST',
         url=url,

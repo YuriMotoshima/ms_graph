@@ -7,7 +7,7 @@ from tests.mocks import mock_token_request_response
 
 @pytest.fixture(autouse=True)
 def mock_token_request(httpx_mock: HTTPXMock):
-    mock_token_request_response(httpx_mock, azure_data['token_app'])
+    mock_token_request_response(httpx_mock, azure_data["token_app"])
 
 
 def test_token_request(ms_graph_instance):
@@ -37,7 +37,7 @@ def test_invitation_request(ms_graph_instance, valid_user_data_invitation_payloa
 def test_invalid_invitation_request(ms_graph_instance, invalid_user_data_invitation_payload):
     with pytest.raises(Exception) as excinfo:
         ms_graph_instance.invite_user(invalid_user_data_invitation_payload)
-    assert 'The email address is not valid.' in str(excinfo.value) 
+    assert 'The email address is not valid.' in str(excinfo.value) or 'value is not a valid email address' in str(excinfo.value)
 
 
 def test_get_user_by_id(ms_graph_instance):
@@ -66,7 +66,7 @@ def test_create_new_user(ms_graph_instance, valid_user_data_payload):
 def test_invalid_create_new_user(ms_graph_instance, invalid_user_data_payload):
     with pytest.raises(Exception) as excinfo:
         ms_graph_instance.create_new_user(invalid_user_data_payload)
-    assert 'The email address is not valid.' in str(excinfo.value) 
+    assert 'The email address is not valid.' in str(excinfo.value) or 'value is not a valid email address' in str(excinfo.value)
 
 
 def test_delete_user(ms_graph_instance):
