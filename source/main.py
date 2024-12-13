@@ -10,12 +10,12 @@ with open('./azure_data.json') as config_file:
         
 if __name__ == "__main__":
     api = MSGraph(azure_data=azure_data)
-    # response = api.get_user_filter(filter={"$filter":"mail eq 'yuri.motoshima@accenture.com'"})
+    # response = api.get_user_filter(filter={"$filter":"mail eq 'yuri.motoshima@gmail.com'"})
     # new_user = {
     #     "accountEnabled": True,
     #     "displayName": "Marto, Gabriel Diniz",
     #     "mailNickname": "Marto",
-    #     "userPrincipalName": "gabriel.diniz.marto@accenture.com",
+    #     "userPrincipalName": "gabriel.diniz.marto@gmail.com",
     #     "passwordProfile" : {
     #         "forceChangePasswordNextSignIn": True
     #         },

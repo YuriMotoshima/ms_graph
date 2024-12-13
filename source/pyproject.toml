@@ -2,7 +2,7 @@
 name = "ms-graph"
 version = "0.1.0"
 description = "Microsoft Graph Api"
-authors = ["Yuri Motoshima <yuri.motoshima@accenture.com>"]
+authors = ["Yuri Motoshima <yuri.motoshima@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

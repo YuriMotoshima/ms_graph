@@ -28,12 +28,12 @@ def mock_get_list_users_response(httpx_mock: HTTPXMock):
                     'displayName': 'Testando, Tester Dev',
                     'givenName': None,
                     'jobTitle': None,
-                    'mail': 'tester.testando.dev@accenture.com',
+                    'mail': 'tester.testando.dev@gmail.com',
                     'mobilePhone': None,
                     'officeLocation': None,
                     'preferredLanguage': None,
                     'surname': None,
-                    'userPrincipalName': 'tester.testando.dev_accenture.com#EXT#@bpoanaliytics.onmicrosoft.com',
+                    'userPrincipalName': 'tester.testando.dev_gmail.com#EXT#@bpoanaliytics.onmicrosoft.com',
                     'id': 'fab315f4-fb61-462b-95f2-9e59735c11f0'
                 },
                 {
@@ -41,12 +41,12 @@ def mock_get_list_users_response(httpx_mock: HTTPXMock):
                     'displayName': 'Testei Testando',
                     'givenName': 'Testei',
                     'jobTitle': None,
-                    'mail': 'testei.testando@accenture.com',
+                    'mail': 'testei.testando@gmail.com',
                     'mobilePhone': None,
                     'officeLocation': None,
                     'preferredLanguage': None,
                     'surname': 'Testando',
-                    'userPrincipalName': 'testei.testando_accenture.com#EXT#@bpoanaliytics.onmicrosoft.com',
+                    'userPrincipalName': 'testei.testando_gmail.com#EXT#@bpoanaliytics.onmicrosoft.com',
                     'id': '6cb67dbd-7dda-461c-9779-025f6ece4af1'
                 }
             ]
@@ -442,7 +442,7 @@ def mock_get_info_application_response(httpx_mock: HTTPXMock, resource_id: str):
             "logoutUrl": "https://abc.defggh.com/SLO.aspx",
             "notes": None,
             "notificationEmailAddresses": [
-                "yuri.motoshima@accenture.com"
+                "yuri.motoshima@gmail.com"
             ],
             "preferredSingleSignOnMode": "saml",
             "preferredTokenSigningKeyThumbprint": "00000000000000000000000000000000",

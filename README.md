@@ -125,7 +125,7 @@ curl --location 'https://graph.microsoft.com/v1.0/users' \
   "accountEnabled": true,
   "displayName": "Silva, James Moraes",
   "mailNickname": "Silva",
-  "userPrincipalName": "james.silva.moraes@accenture.com",
+  "userPrincipalName": "james.silva.moraes@gmail.com",
   "passwordProfile" : {
     "forceChangePasswordNextSignIn": true
   }
